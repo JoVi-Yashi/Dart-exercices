@@ -112,3 +112,7 @@ void desglosarBilletes() {
     print("\nSobrante que no se puede desglosar: $resCantidad Bs");
   }
 }
+
+  void main() {
+    desglosarBilletes();
+  }
