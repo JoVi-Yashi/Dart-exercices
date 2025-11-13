@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() {
+void calInteresesEInversion() {
   print('=== CÁLCULO DE INTERESES E INVERSIÓN ===\n');
   
   stdout.write('Ingrese la cantidad invertida en el banco: ');
@@ -29,5 +29,5 @@ void main() {
 
 // Para ejecutar:
 // void main() {
-//   main();
+//   calInteresesEInversion();
 // }

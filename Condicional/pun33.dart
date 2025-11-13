@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() {
+void descuentoTienda() {
   print('=== CÁLCULO DE DESCUENTOS EN TIENDA ===\n');
   
   stdout.write('Ingrese el nombre del cliente: ');
@@ -37,7 +37,6 @@ void main() {
   print('MONTO A PAGAR: \$${montoPagar.toStringAsFixed(2)}');
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   descuentoTienda();
 // }

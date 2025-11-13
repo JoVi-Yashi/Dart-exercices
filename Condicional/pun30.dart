@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() {
+void redondeoCentena() {
   print('=== REDONDEO A LA CENTENA MÁS PRÓXIMA ===\n');
   
   stdout.write('Ingrese el dígito A (millar): ');
@@ -37,7 +37,6 @@ void main() {
   print('Número redondeado a la centena: $nRedondeado');
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   redondeoCentena();
 // }

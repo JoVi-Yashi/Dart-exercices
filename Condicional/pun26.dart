@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
-void main() {
+void calExpresiones() {
   print('=== CÁLCULO DE EXPRESIONES ===\n');
   
   stdout.write('Ingrese el valor de A: ');
@@ -36,7 +36,6 @@ void main() {
   print('Resultado: ${resultado.toStringAsFixed(2)}');
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   calExpresiones();
 // }

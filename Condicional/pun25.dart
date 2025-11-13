@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() {
+void aumentoSueldo() {
   print('=== CÁLCULO DE AUMENTO DE SUELDO ===\n');
   
   stdout.write('Ingrese el sueldo del trabajador: ');
@@ -26,7 +26,6 @@ void main() {
   print('Nuevo sueldo: Bs. ${nuevoSueldo.toStringAsFixed(2)}');
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   aumentoSueldo();
 // }

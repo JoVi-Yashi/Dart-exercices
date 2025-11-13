@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() {
+void incentivoVendedores() {
   print('=== CÁLCULO DE INCENTIVOS PARA VENDEDORES ===\n');
   
   stdout.write('Ingrese las ventas del departamento 1: ');
@@ -57,7 +57,6 @@ void main() {
   }
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   incentivoVendedores();
 // }

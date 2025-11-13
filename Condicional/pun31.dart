@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() {
+void alquilerAuto() {
   print('=== CÁLCULO DE ALQUILER DE AUTOMÓVIL ===\n');
   
   stdout.write('Ingrese los kilómetros recorridos: ');
@@ -45,7 +45,6 @@ void main() {
   print('Monto total a pagar: Bs. ${montoPagar.toStringAsFixed(2)}');
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   alquilerAuto();
 // }

@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
-void main() {
+void idenFiguraGeometrica() {
   print('=== IDENTIFICACIÓN DE FIGURA GEOMÉTRICA ===\n');
   
   stdout.write('Ingrese el valor 1: ');
@@ -50,7 +50,6 @@ void main() {
   }
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   idenFiguraGeometrica();
 // }

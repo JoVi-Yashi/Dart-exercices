@@ -1,6 +1,6 @@
 import 'dart:io';
 
-void main() {
+void financiamientoCompra() {
   print('=== CÁLCULO DE FINANCIAMIENTO DE COMPRA ===\n');
   
   stdout.write('Ingrese el monto total de la compra: ');
@@ -39,7 +39,6 @@ void main() {
   print('Total a pagar: \$${totalPagar.toStringAsFixed(2)}');
 }
 
-// Para ejecutar:
 // void main() {
-//   main();
+//   financiamientoCompra();
 // }
