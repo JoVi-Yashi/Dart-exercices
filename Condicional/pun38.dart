@@ -123,3 +123,7 @@ if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anyo < 1900 || anyo > 2025) {
     print('Edad: $edad años');
   }
 }
+
+void main(List<String> args) {
+  signoZodiacal();
+}
