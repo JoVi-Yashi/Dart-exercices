@@ -20,3 +20,65 @@ en 18 metros cuadrados caben 10 cedros. También se sabe que una hectárea equiv
 metros cuadrados.
 
 */
+
+import 'dart:io';
+
+void bosque() {
+  print("--- Bosque ---");
+  print("El estado desea roforestar un bosque");
+  print(
+    "Cual es la superficie del bosque en metros cuadrados?\n1. menor de 1M\n2. mayor de 1M\n",
+  );
+  int key = int.parse(stdin.readLineSync()!);
+
+  if (key != 1 && key != 2) {
+    bosque();
+  }
+
+  int superf = 0;
+  int superficie() {
+    print("Ingrese la superficie del bosque en metros cuadrados: ");
+    superf = int.parse(stdin.readLineSync()!);
+    return superf;
+  }
+
+  switch (key) {
+    case 1:
+      /*
+    N<1M
+    PORCENTAJE DE LA SUPERFICIE DEL BOSQUE TIPO DE ÁRBOL
+    70% Pino
+    20% Oyamel
+    10% Cedro
+    */
+      superficie();
+
+      if (superf > 1000000) {
+        superficie();
+      }
+
+      break;
+
+    case 2:
+      /*
+    N>1M
+    PORCENTAJE DE LA SUPERFICIE DEL BOSQUE TIPO DE ÁRBOL
+    50% Pino
+    30% Oyamel
+    20% Cedro
+    */
+      superficie();
+
+      if (superf < 1000000) {
+        superficie();
+      }
+
+      break;
+
+    default:
+  }
+}
+
+void main(List<String> args) {
+  bosque();
+}
