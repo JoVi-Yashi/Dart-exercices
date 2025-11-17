@@ -29,6 +29,6 @@ void calcularSueldoVendedor() {
   );
 }
 
-// void main(List<String> args) {
-//   calcularSueldoVendedor();
-// }
+void main(List<String> args) {
+  calcularSueldoVendedor();
+}

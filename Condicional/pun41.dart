@@ -14,20 +14,58 @@ PORCENTAJE DE LA SUPERFICIE DEL BOSQUE TIPO DE ÁRBOL
 30% Oyamel
 20% Cedro
 El gobierno desea saber el número de pinos, oyameles y cedros que tendrá que sembrar en el bosque,
-si se sabe que en 10 metros cuadrados caben 8 pinos, en 15 metros cuadrados caben 15 oyameles y
-
-en 18 metros cuadrados caben 10 cedros. También se sabe que una hectárea equivale a 10 mil
+si se sabe que 
+en 10 metros cuadrados caben 8 pinos, 
+en 15 metros cuadrados caben 15 oyameles 
+en 18 metros cuadrados caben 10 cedros. 
+También se sabe que una hectárea equivale a 10 mil
 metros cuadrados.
 
 */
 
 import 'dart:io';
 
+
 void bosque() {
+  // * variables
+  int superf = 0;
+
+  // * arboles
+  int pino = 0;
+  int oyamel = 0;
+  int cedro = 0;
+
+  String formatonumero(int numero) {
+  return numero.toString().replaceAllMapped(
+    RegExp(r'\B(?=(\d{3})+(?!\d))'),
+    (match) => ',',
+  );
+  
+}
+
+// * para decimales a
+String formatoDou(double numero) {
+  String partes = numero.toStringAsFixed(2); // "1234567.89", 
+  List<String> split = partes.split('.');    // ["1234567", "89"]
+
+  String parteEntera = split[0];
+  String decimales = split[1];
+
+  // Formatear solo la parte entera con tu función
+  String enteraFormateada = parteEntera.replaceAllMapped(
+    RegExp(r'\B(?=(\d{3})+(?!\d))'),
+    (match) => ',',
+  );
+
+  return "$enteraFormateada.$decimales";
+}
+
+
+
   print("--- Bosque ---");
   print("El estado desea roforestar un bosque");
   print(
-    "Cual es la superficie del bosque en metros cuadrados?\n1. menor de 1M\n2. mayor de 1M\n",
+    "Cual es la superficie del bosque en Hectarias?\n1. menor de 100 hectarias\n2. mayor de 100 hectarias\n",
   );
   int key = int.parse(stdin.readLineSync()!);
 
@@ -35,11 +73,53 @@ void bosque() {
     bosque();
   }
 
-  int superf = 0;
   int superficie() {
-    print("Ingrese la superficie del bosque en metros cuadrados: ");
+    print("Ingrese la superficie del bosque en Hectarias: ");
     superf = int.parse(stdin.readLineSync()!);
     return superf;
+  }
+
+  void arboles(double pPino, double pOyamel, double pCedro) {
+    int superfi = superf * 10000;
+
+    double sufipino = superfi * pPino;
+    double sufiOyamel = superfi * pOyamel;
+    double sufiCedro = superfi * pCedro;
+
+    pino = (sufipino ~/ 10) * 8;
+    oyamel = (sufiOyamel ~/ 15) * 15;
+    cedro = (sufiCedro ~/ 18) * 10;
+
+    print("""
+============================================================
+                        RESULTADOS DEL BOSQUE
+============================================================
+
+Superficie:
+------------------------------------------------------------
+  Hectáreas              : $superf
+  Metros cuadrados       : ${formatonumero(superfi)}
+
+Distribución aplicada:
+------------------------------------------------------------
+  Porcentaje Pino        : ${(pPino * 100).toStringAsFixed(0)}%
+  Porcentaje Oyamel      : ${(pOyamel * 100).toStringAsFixed(0)}%
+  Porcentaje Cedro       : ${(pCedro * 100).toStringAsFixed(0)}%
+
+Cálculo de superficie asignada:
+------------------------------------------------------------
+  Superficie Pino (m²)   : ${formatoDou(sufipino)}
+  Superficie Oyamel (m²) : ${formatoDou(sufiOyamel)}
+  Superficie Cedro (m²)  : ${formatoDou(sufiCedro)}
+
+Cantidad de árboles:
+------------------------------------------------------------
+  Pinos                  : ${formatonumero(pino)}
+  Oyameles               : ${formatonumero(oyamel)}
+  Cedros                 : ${formatonumero(cedro)}
+
+============================================================
+          """);
   }
 
   switch (key) {
@@ -53,10 +133,11 @@ void bosque() {
     */
       superficie();
 
-      if (superf > 1000000) {
+      if (superf > 100) {
         superficie();
       }
 
+      arboles(0.7, 0.2, 0.1);
       break;
 
     case 2:
@@ -69,9 +150,10 @@ void bosque() {
     */
       superficie();
 
-      if (superf < 1000000) {
+      if (superf < 100) {
         superficie();
       }
+      arboles(0.5, 0.3, 0.2);
 
       break;
 

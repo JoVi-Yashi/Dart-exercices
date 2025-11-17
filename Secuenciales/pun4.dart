@@ -19,6 +19,6 @@ void calcularPrecioConDescuento() {
   );
 }
 
-// void main(List<String> args) {
-//   calcularPrecioConDescuento();
-// }
+void main(List<String> args) {
+  calcularPrecioConDescuento();
+}

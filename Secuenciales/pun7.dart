@@ -16,7 +16,6 @@ void convertirMetrosAPiesPulgadas() {
   print('${pies} pies y ${pulgadasRestantes.toStringAsFixed(2)} pulgadas');
 }
 
-
-// void main(List<String> args) {
-//   convertirMetrosAPiesPulgadas();
-// }
+void main(List<String> args) {
+  convertirMetrosAPiesPulgadas();
+}

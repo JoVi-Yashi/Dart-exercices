@@ -17,3 +17,71 @@ Hombres mayores de 15 años 14 - 18 g%
 Desarrolle un algoritmo que indique, si una persona tiene Anemia o no.
 
 */
+
+import 'dart:io';
+
+void anemia() {
+  print("Edad en años (usar decimales para meses, ej: 0.5 = 6 meses): ");
+  double edad = double.parse(stdin.readLineSync()!);
+
+  print("Nivel de hemoglobina (g%): ");
+  double hemo = double.parse(stdin.readLineSync()!);
+
+  double min = 0, max = 0;
+
+  // --- CASOS DE EDAD ---
+  if (edad >= 0 && edad <= 1 / 12) {
+    // 0 - 1 mes
+    min = 13;
+    max = 26;
+  } else if (edad > 1 / 12 && edad <= 0.5) {
+    // >1 mes y <= 6 meses
+    min = 10;
+    max = 18;
+  } else if (edad > 0.5 && edad <= 1) {
+    // >6 meses y <=12 meses
+    min = 11;
+    max = 15;
+  } else if (edad > 1 && edad <= 5) {
+    min = 11.5;
+    max = 15;
+  } else if (edad > 5 && edad <= 10) {
+    min = 12.6;
+    max = 15.5;
+  } else if (edad > 10 && edad <= 15) {
+    min = 13;
+    max = 15.5;
+  } else if (edad > 15) {
+    print("Sexo (M/F): ");
+    String sexo = stdin.readLineSync()!.toUpperCase();
+
+    if (sexo == "F") {
+      min = 12;
+      max = 16;
+    } else if (sexo == "M") {
+      min = 14;
+      max = 18;
+    } else {
+      print("Sexo inválido.");
+      return;
+    }
+  } else {
+    print("Edad no válida.");
+    return;
+  }
+
+  // --- RESULTADO ---
+  print("\nRango permitido: $min - $max g%");
+
+  if (hemo < min) {
+    print("Resultado: POSITIVO para anemia");
+  } else if (hemo > max) {
+    print("Resultado: Nivel alterado, pero NO es anemia");
+  } else {
+    print("Resultado: NEGATIVO, nivel normal");
+  }
+}
+
+void main(List<String> args) {
+  anemia();
+}

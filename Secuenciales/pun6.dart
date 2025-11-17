@@ -22,7 +22,6 @@ void calcularPorcentajeGenero() {
   );
 }
 
-
-// void main(List<String> args) {
-//   calcularPorcentajeGenero();
-// }
+void main(List<String> args) {
+  calcularPorcentajeGenero();
+}

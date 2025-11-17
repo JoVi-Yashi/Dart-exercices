@@ -42,6 +42,6 @@ void calcularCalificacionFinal() {
   );
 }
 
-// void main(List<String> args) {
-//   calcularCalificacionFinal();
-// }
+void main(List<String> args) {
+  calcularCalificacionFinal();
+}

@@ -19,6 +19,6 @@ void calcularGananciaInversion() {
   );
 }
 
-// void main(List<String> args) {
-//   calcularGananciaInversion();
-// }
+void main(List<String> args) {
+  calcularGananciaInversion();
+}

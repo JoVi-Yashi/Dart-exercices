@@ -11,3 +11,50 @@ resto del dinero que se necesite para cubrir la inversión total se repartirá a
 socio y él.
 
 */
+
+import 'dart:io';
+
+void hipoteca() {
+  print("Ingrese el monto de la hipoteca: ");
+  double hipoteca = double.parse(stdin.readLineSync()!);
+
+  print("Ingrese la inversión total necesaria: ");
+  double inversionTotal = double.parse(stdin.readLineSync()!);
+
+  double inversionPersona = 0;
+  double inversionSocio = 0;
+
+  // ---------------- Lógica principal ----------------
+
+  if (hipoteca < 1000000) {
+    // Escenario A: Hipoteca pequeña
+    inversionPersona = inversionTotal * 0.5;
+    inversionSocio = inversionTotal * 0.5;
+  } else {
+    // Escenario B: Hipoteca grande
+    inversionPersona = hipoteca;
+
+    if (hipoteca < inversionTotal) {
+      // Falta dinero para completar la inversión
+      double faltante = inversionTotal - hipoteca;
+
+      // Se divide entre él y su socio
+      double mitad = faltante / 2;
+
+      inversionPersona += mitad;
+      inversionSocio = mitad;
+    } else {
+      // La hipoteca cubre todo
+      inversionSocio = 0;
+    }
+  }
+
+  // ---------------- Resultados ----------------
+  print("\n===== RESULTADOS DEL NEGOCIO =====");
+  print("Inversión de la persona: \$${inversionPersona.toStringAsFixed(2)}");
+  print("Inversión del socio    : \$${inversionSocio.toStringAsFixed(2)}");
+}
+
+void main(List<String> args) {
+  hipoteca();
+}

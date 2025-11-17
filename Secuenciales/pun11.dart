@@ -26,25 +26,36 @@ void calcularSueldoTrabajador() {
   int numeroHijos = int.parse(stdin.readLineSync()!);
 
   double sueldoHorasNormales = horasNormales * pagoHoraNormal;
-  double pagoHoraExtra = pagoHoraNormal * 1.25; 
+  double pagoHoraExtra = pagoHoraNormal * 1.25;
   double sueldoHorasExtras = horasExtras * pagoHoraExtra;
   double sueldoBase = sueldoHorasNormales + sueldoHorasExtras;
 
   print('\n--- Resumen de Sueldo Base ---');
-  print('Sueldo por horas normales: ${sueldoHorasNormales.toStringAsFixed(2)} Bs.');
-  print('Pago por hora extra (valor unitario): ${pagoHoraExtra.toStringAsFixed(2)} Bs.');
+  print(
+    'Sueldo por horas normales: ${sueldoHorasNormales.toStringAsFixed(2)} Bs.',
+  );
+  print(
+    'Pago por hora extra (valor unitario): ${pagoHoraExtra.toStringAsFixed(2)} Bs.',
+  );
   print('Sueldo por horas extras: ${sueldoHorasExtras.toStringAsFixed(2)} Bs.');
-  print('Sueldo Bruto (antes de deducciones y asignaciones): ${sueldoBase.toStringAsFixed(2)} Bs.');
+  print(
+    'Sueldo Bruto (antes de deducciones y asignaciones): ${sueldoBase.toStringAsFixed(2)} Bs.',
+  );
 
   const double actualizacionAcademica = 25000.0;
   const double primaPorHijo = 17300.0;
   const double primaHogar = 18000.0;
 
-  double totalAsignaciones = actualizacionAcademica + (primaPorHijo * numeroHijos) + primaHogar;
+  double totalAsignaciones =
+      actualizacionAcademica + (primaPorHijo * numeroHijos) + primaHogar;
 
   print('\n--- Asignaciones ---');
-  print('Actualización académica: ${actualizacionAcademica.toStringAsFixed(2)} Bs.');
-  print('Prima por hijos ($numeroHijos x ${primaPorHijo.toStringAsFixed(2)}): ${(primaPorHijo * numeroHijos).toStringAsFixed(2)} Bs.');
+  print(
+    'Actualización académica: ${actualizacionAcademica.toStringAsFixed(2)} Bs.',
+  );
+  print(
+    'Prima por hijos ($numeroHijos x ${primaPorHijo.toStringAsFixed(2)}): ${(primaPorHijo * numeroHijos).toStringAsFixed(2)} Bs.',
+  );
   print('Prima por hogar: ${primaHogar.toStringAsFixed(2)} Bs.');
   print('Total de Asignaciones: ${totalAsignaciones.toStringAsFixed(2)} Bs.');
 
@@ -53,14 +64,24 @@ void calcularSueldoTrabajador() {
   const double porcentajeCajaAhorro = 0.07; // 7%
 
   double deduccionParoForzoso = sueldoBase * porcentajeParoForzoso;
-  double deduccionPoliticaHabitacional = sueldoBase * porcentajePoliticaHabitacional;
+  double deduccionPoliticaHabitacional =
+      sueldoBase * porcentajePoliticaHabitacional;
   double deduccionCajaAhorro = sueldoBase * porcentajeCajaAhorro;
-  double totalDeducciones = deduccionParoForzoso + deduccionPoliticaHabitacional + deduccionCajaAhorro;
+  double totalDeducciones =
+      deduccionParoForzoso +
+      deduccionPoliticaHabitacional +
+      deduccionCajaAhorro;
 
   print('\n--- Deducciones ---');
-  print('Deducción por paro forzoso (5%): ${deduccionParoForzoso.toStringAsFixed(2)} Bs.');
-  print('Deducción por política habitacional (2%): ${deduccionPoliticaHabitacional.toStringAsFixed(2)} Bs.');
-  print('Deducción por caja de ahorro (7%): ${deduccionCajaAhorro.toStringAsFixed(2)} Bs.');
+  print(
+    'Deducción por paro forzoso (5%): ${deduccionParoForzoso.toStringAsFixed(2)} Bs.',
+  );
+  print(
+    'Deducción por política habitacional (2%): ${deduccionPoliticaHabitacional.toStringAsFixed(2)} Bs.',
+  );
+  print(
+    'Deducción por caja de ahorro (7%): ${deduccionCajaAhorro.toStringAsFixed(2)} Bs.',
+  );
   print('Total de Deducciones: ${totalDeducciones.toStringAsFixed(2)} Bs.');
 
   double sueldoNeto = sueldoBase + totalAsignaciones - totalDeducciones;
@@ -75,7 +96,7 @@ void calcularSueldoTrabajador() {
   print('-----------------------------------------');
 }
 
-// Para ejecutar:
-// void main() {
-//   calcularSueldoTrabajador();
-// }
+//Para ejecutar:
+void main() {
+  calcularSueldoTrabajador();
+}

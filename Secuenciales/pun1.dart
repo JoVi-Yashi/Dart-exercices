@@ -18,7 +18,6 @@ void calcularPromedioEdad() {
   );
 }
 
-
-// void main(List<String> args) {
-//   calcularPromedioEdad();
-// }
+void main(List<String> args) {
+  calcularPromedioEdad();
+}
