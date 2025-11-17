@@ -57,5 +57,5 @@ void Divisas() {
 
 // Para ejecutar:
 void main() {
-  conversorDeDivisas();
+  Divisas();
 }

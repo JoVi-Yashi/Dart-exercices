@@ -20,3 +20,61 @@ Los datos de cada factura son: Número de factura (num-fac), nombre del cliente 
 la factura (mon-fac), fecha de compra (fec-com) y fecha de pago (fec-pag).
 
 */
+
+import 'dart:io';
+
+void main() {
+  while (true) {
+    print("\n--- Datos de la factura ---");
+
+    stdout.write("Número de factura: ");
+    String numFac = stdin.readLineSync()!;
+
+    stdout.write("Nombre del cliente: ");
+    String nomCli = stdin.readLineSync()!;
+
+    stdout.write("Monto de la factura: ");
+    double monto = double.parse(stdin.readLineSync()!);
+
+    stdout.write("Fecha de compra (AAAA-MM-DD): ");
+    DateTime fechaCompra = DateTime.parse(stdin.readLineSync()!);
+
+    stdout.write("Fecha de pago (AAAA-MM-DD): ");
+    DateTime fechaPago = DateTime.parse(stdin.readLineSync()!);
+
+    // Calcular días transcurridos
+    int dias = fechaPago.difference(fechaCompra).inDays;
+
+    double interes = 0;
+    double descuento = 0;
+
+    // Intereses por mora
+    if (dias >= 60) {
+      interes = monto * 0.08;
+    } else if (dias >= 31) {
+      interes = monto * 0.06;
+    }
+
+    // Descuento por pronto pago
+    if (dias < 15) {
+      descuento = monto * 0.02;
+    }
+
+    double montoFinal = monto + interes - descuento;
+
+    print("\n===== RESULTADO DE LA FACTURA =====");
+    print("Número de factura          : $numFac");
+    print("Cliente                    : $nomCli");
+    print("Monto original             : \$${monto.toStringAsFixed(2)}");
+    print("Días transcurridos         : $dias días");
+    print("Interés por mora           : \$${interes.toStringAsFixed(2)}");
+    print("Descuento por pronto pago  : \$${descuento.toStringAsFixed(2)}");
+    print("Monto final a pagar        : \$${montoFinal.toStringAsFixed(2)}");
+
+    // Continuar
+    stdout.write("\n¿Desea ingresar otra factura? (s/n): ");
+    String resp = stdin.readLineSync()!.toLowerCase();
+
+    if (resp == "n") break;
+  }
+}

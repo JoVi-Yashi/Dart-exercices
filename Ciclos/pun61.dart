@@ -14,3 +14,41 @@ e.  3   56
 f.  1   112
 
 */
+
+import 'dart:io';
+
+void main() {
+  print("=== Multiplicación Rusa ===");
+
+  stdout.write("Ingrese el primer número (A): ");
+  int a = int.parse(stdin.readLineSync()!);
+
+  stdout.write("Ingrese el segundo número (B): ");
+  int b = int.parse(stdin.readLineSync()!);
+
+  int multiplicador = a;
+  int multiplicando = b;
+  int suma = 0;
+
+  print("\nProceso:");
+  print("A\tB\t¿A impar?");
+
+  while (multiplicador >= 1) {
+    print(
+      "$multiplicador\t$multiplicando\t${multiplicador % 2 != 0 ? 'Sí' : 'No'}",
+    );
+
+    // Si el multiplicador es impar → sumar multiplicando
+    if (multiplicador % 2 != 0) {
+      suma += multiplicando;
+    }
+
+    // Dividir entre 2 (entero)
+    multiplicador ~/= 2;
+
+    // Multiplicar por 2
+    multiplicando *= 2;
+  }
+
+  print("\nResultado final: $a x $b = $suma");
+}

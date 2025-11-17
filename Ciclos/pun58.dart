@@ -9,3 +9,29 @@ reciba tres entradas: el capital a depositar, la tasa de interés y la duración
 y calcule el capital total acumulado al final del período de tiempo especificado.
 
 */
+
+import 'dart:io';
+
+void main() {
+  // Entradas
+  stdout.write("Ingrese el capital inicial: ");
+  double capital = double.parse(stdin.readLineSync()!);
+
+  stdout.write("Ingrese la tasa de interés anual (ejemplo 0.06 para 6%): ");
+  double tasa = double.parse(stdin.readLineSync()!);
+
+  stdout.write("Ingrese la duración del depósito en semanas: ");
+  int semanas = int.parse(stdin.readLineSync()!);
+
+  int dias = semanas * 7;
+
+  // Cálculo diario
+  for (int i = 1; i <= dias; i++) {
+    double interesDiario = (capital * tasa) / 365;
+    capital += interesDiario;
+  }
+
+  print(
+    "Capital total acumulado después de $semanas semanas: ${capital.toStringAsFixed(2)}",
+  );
+}
